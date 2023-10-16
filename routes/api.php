@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group([ 'middleware' => 'auth:sanctum'], function(){
+    Route::patch('/notificaciones/{proyectos_notificaciones_id}/leido', [ApiNotificacionesController::class , 'leido']); 
     Route::resource('notificaciones', ApiNotificacionesController::class);
 });

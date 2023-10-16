@@ -59,11 +59,16 @@ class ApiNotificacionesController extends Controller
                         'users.name'
             )
         ->get();
+
+        $notif_no_leidas = Proyectos_notificaciones::where('leido',0)
+                            ->where('estado','Publicada')
+                            ->where('proyecto_id',$id_proyecto)
+        ->count();
         
-        return response()->json(['status' => true , 'data' => $notificaciones]);
+        return response()->json(['num_no_leidas' => $notif_no_leidas , 'notificaciones' =>$notificaciones]);
     }
 
-    public function update($proyectos_notificaciones_id){
+    public function leido($proyectos_notificaciones_id){
 
         $mytime = Carbon::now();
         $fecha_now = $mytime->toDateTimeString();
@@ -87,6 +92,7 @@ class ApiNotificacionesController extends Controller
             ],400);
         }
     }
+
 
 
 }

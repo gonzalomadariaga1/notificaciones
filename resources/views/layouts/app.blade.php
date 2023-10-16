@@ -45,7 +45,7 @@
     
     </head>
     <body>
-      {{-- {{dd($notificaciones['formatted'])}}; --}}
+      {{-- {{dd($notificaciones)}}; --}}
         <div class="page">
             <!-- Navbar -->
             <header class="navbar navbar-expand-md d-print-none" >
