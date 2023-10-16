@@ -1,8 +1,8 @@
 @php
-    $ruta = '.users.';
-    $name_section = 'Usuarios';
-    $name_singular_m = 'Usuario';
-    $name_singular = 'usuario';
+    $ruta = '.proyectos.';
+    $name_section = 'Proyectos';
+    $name_singular_m = 'Proyecto';
+    $name_singular = 'proyecto';
     $third_li = true;
     $type_section = 'Crear';
     $card_actions = false;
@@ -28,35 +28,19 @@
             <div class="card-body">
 
                 <div class="mb-3">
-                  <label class="form-label required">Nombre completo</label>
+                  <label class="form-label required">Nombre</label>
                   <div>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Nombres y apellidos..." value="{{ old('name') }}" >
+                    <input type="text" name="nombre" class="form-control"  placeholder="Nombres del proyecto" value="{{ old('nombre') }}" >
                   </div>
                 </div>
         
                 <div class="mb-3">
-                  <label class="form-label required">Email</label>
+                  <label class="form-label required">URL</label>
                   <div>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Email..." value="{{ old('email') }}">
+                    <input type="text" name="url" class="form-control" value="https://...">
                   </div>
                 </div>
-        
-                <div class="mb-3">
-                  <label class="form-label required">Contraseña</label>
-                  <div>
-                    <input type="password" class="form-control" placeholder="Password" name="password" minlength="8">
-                    <small class="form-hint">
-                      Debe contener entre 8 y 20 caracteres.
-                    </small>
-                  </div>
-                </div>
-        
-                <div class="mb-3">
-                  <label class="form-label required">Confirme contraseña</label>
-                  <div>
-                    <input type="password" name="password_confirmation" class="form-control" placeholder="Repita la contraseña" id="password_confirmation">          
-                  </div>
-                </div>
+
             </div>
 
             <div class="card-footer align-items-center">

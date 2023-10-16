@@ -17884,7 +17884,7 @@ body.theme-dark .hide-theme-dark, body[data-bs-theme=dark] .hide-theme-dark {
 
 .avatar {
   --tblr-avatar-size: 2.5rem;
-  --tblr-avatar-bg: var(--tblr-bg-surface-secondary);
+  --tblr-avatar-bg: var(--tblr-bg-surface);
   --tblr-avatar-shadow: inset var(--tblr-border-color-translucent) 0 0 0 1px;
   position: relative;
   width: var(--tblr-avatar-size);
@@ -17904,7 +17904,7 @@ body.theme-dark .hide-theme-dark, body[data-bs-theme=dark] .hide-theme-dark {
           user-select: none;
   background: var(--tblr-avatar-bg) no-repeat center/cover;
   border-radius: var(--tblr-border-radius);
-  box-shadow: var(--tblr-avatar-shadow);
+
 }
 .avatar svg {
   width: calc(var(--tblr-avatar-size) / 1.6666666667);

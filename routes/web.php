@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\LayoutsController;
 use App\Http\Controllers\ReportesController;
+use App\Http\Controllers\ProyectosController;
+use App\Http\Controllers\NotificacionesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,15 @@ Route::name('admin.')->group(function(){
         Route::resource('roles', RolesController::class)->names('roles');
 
         Route::resource('reportes', ReportesController::class)->names('reportes');
+
+        Route::get('/proyectos/{id}/unable_proyecto', [ProyectosController::class , 'unable_proyecto'])->name('proyectos.unable_proyecto');    
+        Route::get('/proyectos/{id}/enable_proyecto', [ProyectosController::class , 'enable_proyecto'])->name('proyectos.enable_proyecto');
+        Route::resource('proyectos', ProyectosController::class)->names('proyectos');
+
+        Route::get('/notificaciones/{option_selected}/{id_notificacion}/change_estado', [NotificacionesController::class , 'change_estado'])->name('notificaciones.change_estado');
+        Route::resource('notificaciones', NotificacionesController::class)->names('notificaciones');
+
+        Route::get('/notificaciones/{proyectos_notificaciones_id}/marcar_leida', [HomeController::class , 'marcar_leida']);    
 
 
     });
