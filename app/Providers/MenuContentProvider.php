@@ -6,9 +6,11 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Proyectos_notificaciones;
+use App\Traits\ConsumeApiNotificaciones;
 
 class MenuContentProvider extends ServiceProvider
 {
+    use ConsumeApiNotificaciones;
     public $notificaciones;
     public $notif_no_leidas;
     /**
@@ -24,25 +26,31 @@ class MenuContentProvider extends ServiceProvider
      */
     public function boot()
     {
-        $client = new Client();
-        $headers = [
-            'Accept'        => 'application/json', 
-            'Authorization' => 'Bearer ' . '1|RldBimYO63bHxHDFm6vWX25ZvynOgbnGgwS3KOv9ec50235d', 
-        ];
 
-        try {
-            $response = $client->request('GET', 'https://notificaciones.pspsiche.com/api/notificaciones/1', [
-                'headers' => $headers,
-            ]);
+        $method = 'GET';
+        $uri= '1';
 
-            $body = $response->getBody()->getContents();
-            $data = json_decode($body);
-            $this->notificaciones = $data;
+        $this->notificaciones = $this->makeRequest($method,$uri);
+
+        // $client = new Client();
+        // $headers = [
+        //     'Accept'        => 'application/json', 
+        //     'Authorization' => 'Bearer ' . '1|RldBimYO63bHxHDFm6vWX25ZvynOgbnGgwS3KOv9ec50235d', 
+        // ];
+
+        // try {
+        //     $response = $client->request('GET', 'https://notificaciones.pspsiche.com/api/notificaciones/1', [
+        //         'headers' => $headers,
+        //     ]);
+
+        //     $body = $response->getBody()->getContents();
+        //     $data = json_decode($body);
+        //     $this->notificaciones = $data;
         
-        } catch (Exception $e) {
-            // Maneja cualquier excepción que ocurra durante la solicitud
-            echo 'Error: ' . $e->getMessage();
-        }
+        // } catch (Exception $e) {
+        //     // Maneja cualquier excepción que ocurra durante la solicitud
+        //     echo 'Error: ' . $e->getMessage();
+        // }
 
         // $this->notif_no_leidas = Proyectos_notificaciones::where('leido',0)->where('estado','Publicada')->where('proyecto_id',$this->id_proyecto)->count();
 

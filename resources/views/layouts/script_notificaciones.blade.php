@@ -1,6 +1,5 @@
 <script>
-    function showModal(proyectos_notificaciones_id,titulo,resumen,importancia,contenido,fecha){
-        console.log(proyectos_notificaciones_id,titulo,resumen,importancia,contenido,fecha);
+    function showModal(proyectos_notificaciones_id,titulo,resumen,importancia,contenido,fecha,leido){
         var badge_importante = document.getElementById('badge_importante');
         badge_importante.style.display = "none";
 
@@ -11,24 +10,29 @@
             badge_importante.removeAttribute('style','');
         }
 
+        if (leido == 1) {
+            $('#btn_marcar_leido').hide();
+        }
+
+        if (leido == 0) {
+            $.ajax({
+                type: "GET",
+                url: '/notificaciones/' + proyectos_notificaciones_id + '/marcar_leida/',
+                error: function(e) {
+                    console.log(e);
+                },
+                success: function(response) {
+
+                    console.log("response",response);
+                    
+                    
+                }
+            });
+        }
+
         $('#contenido').html(contenido);
         $('#fecha').html(fecha);
         $('#modal_notificacion').modal('show');
-
-        $.ajax({
-            type: "GET",
-            url: '/notificaciones/' + proyectos_notificaciones_id + '/marcar_leida/',
-            error: function(e) {
-                console.log(e);
-            },
-            success: function(response) {
-
-                console.log("response",response);
-                
-                
-            }
-        });
-
 
     }
 

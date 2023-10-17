@@ -54,7 +54,7 @@
             @endif
 
             @if (auth()->user()->can('admin-proyectos-show'))
-              <li class="nav-item">
+              <li class="nav-item @if ( (request()->segment(1) == 'proyectos')  )  active  @else '' @endif">
                 <a class="nav-link" href="{{route('admin.proyectos.index')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-factory-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -64,7 +64,7 @@
                       <path d="M19 21v-8l-1.436 -9.574a.5 .5 0 0 0 -.495 -.426h-1.145a.5 .5 0 0 0 -.494 .418l-1.43 8.582"></path>
                       <path d="M9 17h1"></path>
                       <path d="M14 17h1"></path>
-                  </svg>
+                    </svg>
                   </span>
                   <span class="nav-link-title">
                     Proyectos
@@ -74,7 +74,7 @@
             @endif
 
             @if (auth()->user()->can('admin-notificaciones-show'))
-              <li class="nav-item">
+              <li class="nav-item @if ( (request()->segment(1) == 'notificaciones')  )  active  @else '' @endif">
                 <a class="nav-link" href="{{route('admin.notificaciones.index')}}" >
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell-ringing" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -83,7 +83,7 @@
                         <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
                         <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"></path>
                         <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"></path>
-                    </svg>
+                      </svg>
                   </span>
                   <span class="nav-link-title">
                     Notificaciones

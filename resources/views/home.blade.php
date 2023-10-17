@@ -10,25 +10,25 @@
     <div class="card-body">
         <div class="row row-cards">
 
-            @can('admin-user-show')
+            @can('admin-notificaciones-show')
                 <div class="col-sm-6 col-lg-3">
                     <div class="card card-sm">
                     <div class="card-body">
                         <div class="row align-items-center">
                         <div class="col-auto">
                             <span class="bg-primary text-white avatar">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell-ringing" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-                                    <path d="M16 19h6"></path>
-                                    <path d="M19 16v6"></path>
-                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
-                                 </svg>
+                                    <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
+                                    <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+                                    <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"></path>
+                                    <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"></path>
+                                  </svg>
                             </span>
                         </div>
                         <div class="col">
                             <div class="font-weight-medium">
-                            <a href="{{route('admin.users.create')}}"> Crear usuario </a> 
+                            <a href="{{route('admin.notificaciones.create')}}"> Crear notificaciones </a> 
                             </div>
                         </div>
                         </div>
@@ -43,19 +43,19 @@
                     <div class="row align-items-center">
                         <div class="col-auto">
                             <span class="bg-green text-white avatar">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-factory-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M12.5 21h-5.5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 1.74 1.012"></path>
-                                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
-                                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
-                                    <path d="M16 19h6"></path>
-                                    <path d="M19 16v6"></path>
-                                </svg>                        
+                                    <path d="M3 21h18"></path>
+                                    <path d="M5 21v-12l5 4v-4l5 4h4"></path>
+                                    <path d="M19 21v-8l-1.436 -9.574a.5 .5 0 0 0 -.495 -.426h-1.145a.5 .5 0 0 0 -.494 .418l-1.43 8.582"></path>
+                                    <path d="M9 17h1"></path>
+                                    <path d="M14 17h1"></path>
+                                  </svg>                        
                             </span>
                         </div>
                         <div class="col">
                             <div class="font-weight-medium">
-                                <a href="{{route('admin.roles.create')}}"> Crear rol </a>
+                                <a href="{{route('admin.proyectos.create')}}"> Crear proyecto </a>
                             </div>
                         </div>
                     </div>

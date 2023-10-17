@@ -90,8 +90,12 @@
                             @foreach ($item as $permiso)
         
                             <div class="custom-control custom-checkbox ">
+                                
                                 <input type="checkbox" class="custom-control-input all-permiso permiso-{!! str_replace(' ', '', $permiso->group_name) !!}" id="permiso_{{$permiso->id}}" value="{{$permiso->id}}" name="permiso[]"
-                                {{$row->hasPermissionTo($permiso->id) ? 'checked' : ''}}
+                                @foreach ($rol_tiene_permisos as $rol_tiene_permiso)
+                                    {{ $rol_tiene_permiso->permission_id == $permiso->id ? 'checked' : ''}}
+                                @endforeach
+                                
                                 >
                                 <label class="custom-control-label " for="permiso_{{$permiso->id}}">{{$permiso->description}}</label>
         

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rolpermiso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -103,8 +104,10 @@ class RolesController extends Controller
     public function edit(Role $role)
     {
         $permisos = DB::table('permissions')
-        ->select('id','name','group_name','description')
+            ->select('id','name','group_name','description')
         ->get();
+        
+        $rol_tiene_permisos = Rolpermiso::where('role_id',$role->id)->get();
 
         $permisosgroup = array_group_by($permisos->toArray(),'group_name');
         $group_names_roles = array_keys($permisosgroup);
@@ -112,9 +115,10 @@ class RolesController extends Controller
         
 
         return view('admin.roles.edit', [
-            'row' => $role,
+            'row' => $role->load('permissions'),
             'permissions' => $permisosgroup,
-            'group_names_roles' => $group_names_roles
+            'group_names_roles' => $group_names_roles,
+            'rol_tiene_permisos' => $rol_tiene_permisos
         ]);
     }
 

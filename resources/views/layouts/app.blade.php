@@ -276,12 +276,12 @@
                     </div>
                     <div class="modal-footer">
                       <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-                        Cancelar
+                        Cerrar
                       </a>
                       {{-- <a href="#" type="submit" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
                         Enviar reporte
                       </a> --}}
-                      <input class="btn btn-primary submit-prevent-button" onclick="refresh()" type="submit" value="Marcar como leído">
+                      <input class="btn btn-primary submit-prevent-button" onclick="refresh()" type="submit" value="Marcar como leído" id="btn_marcar_leido">
                     </div>
                   </div>
                 </div>
